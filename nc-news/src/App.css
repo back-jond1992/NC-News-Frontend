@@ -1,0 +1,41 @@
+.App {
+  text-align: center;
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 100%;
+  grid-template-rows: min-content min-content auto;
+  grid-template-areas:
+    "header"
+    "nav"
+    "main";
+}
+
+.header {
+  border: solid red 1px;
+  grid-area: header;
+}
+
+.nav {
+  border: solid green 1px;
+  grid-area: nav;
+  display: flex;
+}
+
+.articles {
+  border: solid blue 1px;
+  grid-area: main;
+}
+
+.navBarLeft {
+  border: solid black 1px;
+  text-align: left;
+  flex: 1;
+  margin: 10px;
+}
+
+.navBarRight {
+  border: solid black 1px;
+  text-align: right;
+  flex: 1;
+  margin: 10px;
+}
