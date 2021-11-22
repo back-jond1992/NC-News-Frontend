@@ -39,3 +39,12 @@
   flex: 1;
   margin: 10px;
 }
+
+.articles {
+  display: flex;
+}
+
+.articleCard {
+  border: solid pink 1px;
+  flex: 1;
+}
