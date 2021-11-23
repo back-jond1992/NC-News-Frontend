@@ -3,17 +3,14 @@ import { getArticlesByTopic } from "../API/api";
 
 const topics = ["coding", "football", "cooking"];
 
-export default function ChooseTopic({ chosenTopic, setChosenTopic }) {
-  const [articles, setArticles] = useState([]);
+export default function ChooseTopic({ setArticles }) {
+  const [chosenTopic, setChosenTopic] = useState([]);
 
   useEffect(() => {
     getArticlesByTopic(chosenTopic).then((response) => {
       setArticles(response);
     });
-  }, [chosenTopic]);
-
-  console.log(articles);
-  console.log(chosenTopic);
+  }, [chosenTopic, setArticles]);
 
   return (
     <form action="/action_page.php" id="topicsForm">
@@ -26,8 +23,8 @@ export default function ChooseTopic({ chosenTopic, setChosenTopic }) {
         id="topics"
         form="topicsForm"
       >
-        <option value="Please select" disabled selected>
-          Please select
+        <option value="" disabled selected>
+          Topics
         </option>
         {topics.map((topic) => {
           return (

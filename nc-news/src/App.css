@@ -45,11 +45,24 @@
 .articles {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  padding: 10px;
+  padding: 5px;
 }
 
 .articleCard {
   border: solid pink 1px;
   margin: 10px;
   padding: 10px;
+}
+
+#topicsForm {
+  display: inline;
+  margin: 10px;
+}
+
+#userThumbnail {
+  border: 1px solid #ddd;
+  border-radius: 15px;
+  padding: 5px;
+  width: 50px;
+  display: inline;
 }

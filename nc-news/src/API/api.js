@@ -15,3 +15,9 @@ export function getArticlesByTopic(chosenTopic) {
     return response.data.articles;
   });
 }
+
+export function getAllUsers() {
+  return articlesAPI.get("/users").then((response) => {
+    return response.data.users;
+  });
+}

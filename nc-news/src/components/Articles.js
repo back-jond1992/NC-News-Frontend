@@ -1,15 +1,13 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { getAllArticles } from "../API/api";
 import ArticleCard from "../utils/ArticleCard";
 
-export default function Articles() {
-  const [articles, setArticles] = useState([]);
-
+export default function Articles({ articles, setArticles }) {
   useEffect(() => {
     getAllArticles().then((response) => {
       setArticles(response);
     });
-  }, []);
+  }, [setArticles]);
 
   console.log(articles);
 

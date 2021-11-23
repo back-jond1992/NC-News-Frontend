@@ -1,24 +1,31 @@
 import { Link } from "react-router-dom";
-import { useState, useEffect, useParams } from "react";
-import { getArticlesByTopic } from "../API/api";
 import ChooseTopic from "../utils/ChooseTopic.js";
+import { useContext } from "react";
+import { UserContext } from "../contexts/Users";
 
-export default function NavBar({ chosenTopic, setChosenTopic }) {
+export default function NavBar({ articles, setArticles }) {
+  const { currentUser } = useContext(UserContext);
   return (
     <div className="nav">
       <div className="navBarLeft">
         <Link to="/" className="Nav__link">
           Home
         </Link>
-        <ChooseTopic chosenTopic={chosenTopic} setChosenTopic={setChosenTopic} />
+        <Link to="/Topics" className="Nav__link">
+          <ChooseTopic setArticles={setArticles} />
+        </Link>
       </div>
       <div className="navBarRight">
-        <Link to="/Login" className="Nav__link">
-          Login
-        </Link>
-        <Link to="/User" className="Nav__link">
-          User
-        </Link>
+        {currentUser.username === "" ? (
+          <Link to="/Login" className="Nav__link">
+            Login
+          </Link>
+        ) : (
+          <Link to="/User" className="Nav__link">
+            <p>{currentUser.username}</p>
+            <img id="userThumbnail" src={currentUser.avatar_url} alt={`${currentUser.username} thumbnail`} />
+          </Link>
+        )}
       </div>
     </div>
   );
