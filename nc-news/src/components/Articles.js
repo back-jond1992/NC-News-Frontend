@@ -7,11 +7,11 @@ export default function Articles({ articles, setArticles }) {
     getAllArticles().then((response) => {
       setArticles(response);
     });
-  }, [articles]);
+  }, [setArticles]);
 
   return (
     <div className="articles">
-      <ArticleCard articles={articles} />
+      <ArticleCard articles={articles} setArticles={setArticles} />
     </div>
   );
 }

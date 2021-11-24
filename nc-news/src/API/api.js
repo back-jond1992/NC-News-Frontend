@@ -5,7 +5,7 @@ const articlesAPI = axios.create({
 });
 
 export function getAllArticles() {
-  return articlesAPI.get("/articles?sort_by=votes&order=ASC").then((response) => {
+  return articlesAPI.get("/articles?sort_by=votes&order=DESC").then((response) => {
     return response.data.articles;
   });
 }
