@@ -8,6 +8,8 @@ import Articles from "./components/Articles";
 import Topics from "./components/Topics";
 import Login from "./components/Login";
 import WelcomeBack from "./components/WelcomeBack";
+import User from "./components/User";
+import ReadArticle from "./components/ReadArticle";
 
 function App() {
   const [articles, setArticles] = useState([]);
@@ -17,8 +19,6 @@ function App() {
     avatar_url: "",
     name: "",
   });
-
-  console.log(currentUser);
 
   return (
     <UserContext.Provider value={{ currentUser, setCurrentUser }}>
@@ -30,6 +30,8 @@ function App() {
           <Route path="/Topics" element={<Topics articles={articles} setArticles={setArticles} />} />
           <Route path="/Login" element={<Login />} />
           <Route path="/WelcomeBack" element={<WelcomeBack />} />
+          <Route path="/User" element={<User />} />
+          <Route path="/ReadArticle/:article_id" element={<ReadArticle />} />
         </Routes>
       </div>
     </UserContext.Provider>

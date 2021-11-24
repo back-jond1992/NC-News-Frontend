@@ -9,13 +9,11 @@ export default function Login() {
   const { currentUser } = useContext(UserContext);
   const [users, setUsers] = useState([]);
 
-  console.log(currentUser);
-
   useEffect(() => {
     getAllUsers().then((response) => {
       setUsers(response);
     });
   }, []);
 
-  return <div>{currentUser.username === "" ? <UserCard users={users} /> : <WelcomeBack />}</div>;
+  return <div className="loginPage">{currentUser.username === "" ? <UserCard users={users} /> : <WelcomeBack />}</div>;
 }

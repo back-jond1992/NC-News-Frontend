@@ -21,3 +21,21 @@ export function getAllUsers() {
     return response.data.users;
   });
 }
+
+export function getArticlesByID(article_id) {
+  return articlesAPI.get(`/articles/${article_id}`).then((response) => {
+    return response.data.article;
+  });
+}
+
+export function getCommentsByArticleID(article_id) {
+  return articlesAPI.get(`/articles/${article_id}/comments`).then((response) => {
+    return response.data.comments;
+  });
+}
+
+export function patchUsers(article_id, vote) {
+  return articlesAPI.patch(`/articles/${article_id}`, vote).then((response) => {
+    return response.data.article;
+  });
+}

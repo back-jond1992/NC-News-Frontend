@@ -7,9 +7,7 @@ export default function Articles({ articles, setArticles }) {
     getAllArticles().then((response) => {
       setArticles(response);
     });
-  }, [setArticles]);
-
-  console.log(articles);
+  }, [articles]);
 
   return (
     <div className="articles">

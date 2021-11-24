@@ -1,7 +1,7 @@
 .App {
   text-align: center;
-  min-height: 100vh;
-  display: grid;
+  height: 100vh;
+  max-height: 100vh;
   grid-template-columns: 100%;
   grid-template-rows: min-content min-content auto;
   grid-template-areas:
@@ -26,6 +26,11 @@
   grid-area: main;
   max-height: 100vh;
   overflow: scroll;
+  scrollbar-width: none;
+}
+
+.articles::-webkit-scrollbar {
+  display: none;
 }
 
 .navBarLeft {
@@ -43,12 +48,15 @@
 }
 
 .articles {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  padding: 5px;
+  display: flex;
+  flex-direction: row;
+  padding: 10px;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
 }
 
 .articleCard {
+  max-width: 40%;
   border: solid pink 1px;
   margin: 10px;
   padding: 10px;
@@ -63,6 +71,62 @@
   border: 1px solid #ddd;
   border-radius: 15px;
   padding: 5px;
-  width: 50px;
+  height: 4vh;
+  width: auto;
   display: inline;
+}
+
+#userName {
+  display: inline;
+}
+
+.loginPage {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  padding: 10px;
+}
+
+.userCard {
+  border: solid pink 1px;
+  margin: 10px;
+  padding: 10px;
+}
+
+.userImage {
+  border: 1px solid purple;
+  border-radius: 15px;
+  padding: 10px;
+  width: 100px;
+}
+
+.loginPage {
+  border: solid brown 1px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.welcomeBack {
+  border: solid yellow 1px;
+  margin: auto;
+  width: 50%;
+  padding: 10px;
+  text-align: center;
+}
+
+.readArticleCards {
+  border: solid darkgoldenrod 1px;
+  margin: 15px;
+  padding: 15px;
+}
+
+.readArticles {
+  border: solid aqua 1px;
+  margin: 10px;
+  padding: 10px;
+}
+
+.commentCard {
+  border: solid violet 1px;
+  margin: 20px;
+  padding: 20px;
 }

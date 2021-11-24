@@ -3,7 +3,7 @@ import ChooseTopic from "../utils/ChooseTopic.js";
 import { useContext } from "react";
 import { UserContext } from "../contexts/Users";
 
-export default function NavBar({ articles, setArticles }) {
+export default function NavBar({ setArticles }) {
   const { currentUser } = useContext(UserContext);
   return (
     <div className="nav">
@@ -22,7 +22,7 @@ export default function NavBar({ articles, setArticles }) {
           </Link>
         ) : (
           <Link to="/User" className="Nav__link">
-            <p>{currentUser.username}</p>
+            <p id="userName">{currentUser.username}</p>
             <img id="userThumbnail" src={currentUser.avatar_url} alt={`${currentUser.username} thumbnail`} />
           </Link>
         )}

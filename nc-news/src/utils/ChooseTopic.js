@@ -21,9 +21,8 @@ export default function ChooseTopic({ setArticles }) {
         }}
         name="topics"
         id="topics"
-        form="topicsForm"
       >
-        <option value="" disabled selected>
+        <option value="" selected disabled>
           Topics
         </option>
         {topics.map((topic) => {
