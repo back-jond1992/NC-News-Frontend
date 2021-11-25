@@ -39,3 +39,9 @@ export function patchUsers(article_id, vote) {
     return response.data.article;
   });
 }
+
+export function postComment(article_id, body) {
+  return articlesAPI.post(`/articles/${article_id}/comments`, body).then((response) => {
+    return response.data.comment;
+  });
+}

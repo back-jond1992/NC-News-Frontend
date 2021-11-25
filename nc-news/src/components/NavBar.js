@@ -9,8 +9,9 @@ export default function NavBar({ setArticles }) {
     <div className="nav">
       <div className="navBarLeft">
         <Link to="/" className="Nav__link">
-          Home
+          Trending
         </Link>
+        {" | "}
         <Link to="/Topics" className="Nav__link">
           <ChooseTopic setArticles={setArticles} />
         </Link>
