@@ -12,13 +12,14 @@ export default function CommentBox() {
     body: "",
   });
   const [posted, setPosted] = useState(false);
-  const [postedComment, setPostedComment] = useState({});
-  console.log(posted);
+  const [postedComment, setPostedComment] = useState([]);
 
   function handleChange(event) {
     const { name, value } = event.target;
     setComment({ ...comment, [name]: value });
   }
+
+  console.log(postedComment);
 
   return (
     <>
@@ -27,7 +28,8 @@ export default function CommentBox() {
         onSubmit={(event) => {
           event.preventDefault();
           postComment(article_id, comment).then((response) => {
-            setPostedComment(response);
+            const existingComment = [...postedComment, response];
+            setPostedComment(existingComment);
           });
           setPosted(true);
         }}
@@ -38,7 +40,22 @@ export default function CommentBox() {
           <button type="submit">Post</button>
         </fieldset>
       </form>
-      {!!posted ? <p className="commentCard">Posted: {postedComment.body}</p> : null}
+      {!!posted ? (
+        <div className="commentCard">
+          <p>Posted:</p>
+          <div className="commentCard">
+            {postedComment.map((comment) => {
+              return (
+                <div key={comment.author + comment.body} className="commentCard">
+                  <p>{comment.author}</p>
+                  <p>{comment.body}</p>
+                  <p>🤍 {comment.votes}</p>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      ) : null}
     </>
   );
 }

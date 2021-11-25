@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import Comments from "../components/Comments";
 import { getArticlesByID, patchUsers } from "../API/api";
 
-export default function ReadArticleCard({ readArticle, setArticles, article_id }) {
+export default function ReadArticleCard({ readArticle, article_id }) {
   const [openComments, setOpenComments] = useState(false);
   const [votes, setVotes] = useState(0);
 
@@ -18,7 +18,8 @@ export default function ReadArticleCard({ readArticle, setArticles, article_id }
         <h2>{readArticle.title}</h2>
         <p>{readArticle.topic}</p>
         <p>{readArticle.body}</p>
-        <p>{votes}</p>
+        <p>💬 {readArticle.comment_count}</p>
+        <p>🤍 {votes}</p>
         <button
           onClick={() => {
             patchUsers(article_id, { inc_votes: 1 }).then((response) => {

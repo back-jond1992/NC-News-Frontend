@@ -15,6 +15,7 @@ export default function ChooseTopic({ setArticles }) {
   return (
     <form action="/action_page.php" id="topicsForm">
       <select
+        defaultValue={"default"}
         onChange={(event) => {
           event.preventDefault();
           setChosenTopic(event.target.value);
@@ -22,7 +23,7 @@ export default function ChooseTopic({ setArticles }) {
         name="topics"
         id="topics"
       >
-        <option value="" selected disabled>
+        <option value="default" disabled>
           Topics
         </option>
         {topics.map((topic) => {

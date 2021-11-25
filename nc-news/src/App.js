@@ -13,6 +13,7 @@ import ReadArticle from "./components/ReadArticle";
 
 function App() {
   const [articles, setArticles] = useState([]);
+  const [sortBy, setSortBy] = useState("comment_count");
 
   const [currentUser, setCurrentUser] = useState({
     username: "",
@@ -26,8 +27,14 @@ function App() {
         <Header />
         <NavBar articles={articles} setArticles={setArticles} />
         <Routes>
-          <Route path="/" element={<Articles articles={articles} setArticles={setArticles} />} />
-          <Route path="/Topics" element={<Topics articles={articles} setArticles={setArticles} />} />
+          <Route
+            path="/"
+            element={<Articles articles={articles} setArticles={setArticles} sortBy={sortBy} setSortBy={setSortBy} />}
+          />
+          <Route
+            path="/Topics"
+            element={<Topics articles={articles} setArticles={setArticles} sortBy={sortBy} setSortBy={setSortBy} />}
+          />
           <Route path="/Login" element={<Login />} />
           <Route path="/WelcomeBack" element={<WelcomeBack />} />
           <Route path="/User" element={<User />} />

@@ -4,8 +4,8 @@ const articlesAPI = axios.create({
   baseURL: "https://jacks-news.herokuapp.com/api",
 });
 
-export function getAllArticles() {
-  return articlesAPI.get("/articles?sort_by=votes&order=DESC").then((response) => {
+export function getAllArticles(sortBy) {
+  return articlesAPI.get(`/articles?sort_by=${sortBy}&order=DESC`).then((response) => {
     return response.data.articles;
   });
 }
