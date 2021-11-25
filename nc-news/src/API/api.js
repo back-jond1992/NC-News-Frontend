@@ -45,3 +45,7 @@ export function postComment(article_id, body) {
     return response.data.comment;
   });
 }
+
+export function deleteComment(comment_id) {
+  return articlesAPI.delete(`/comments/${comment_id}`);
+}
