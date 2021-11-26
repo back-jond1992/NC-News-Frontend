@@ -7,32 +7,32 @@ export default function NavBar({ setArticles, chosenTopic, setChosenTopic, sortB
   const { currentUser } = useContext(UserContext);
   return (
     <div className="nav">
-      {/* <div className="navBarLeft"> */}
-      <Link to="/" className="Nav__link_left">
-        Trending
-      </Link>
-      {" | "}
-      <Link to="/Topics" className="Nav__link_left">
-        <ChooseTopic
-          chosenTopic={chosenTopic}
-          setChosenTopic={setChosenTopic}
-          sortBy={sortBy}
-          setSortBy={setSortBy}
-          setArticles={setArticles}
-        />
-      </Link>
-      {/* </div> */}
-      {/* <div className="navBarRight"> */}
-      {currentUser.username === "" ? (
-        <Link to="/Login" className="Nav__link_right">
-          Login
+      <div className="navBarLeft">
+        <Link to="/" className="Nav__link">
+          Trending
         </Link>
-      ) : (
-        <Link to="/User" className="Nav__link_right">
-          <img id="userThumbnail" src={currentUser.avatar_url} alt={`${currentUser.username} thumbnail`} />
+        {" | "}
+        <Link to="/Topics" className="Nav__link">
+          <ChooseTopic
+            chosenTopic={chosenTopic}
+            setChosenTopic={setChosenTopic}
+            sortBy={sortBy}
+            setSortBy={setSortBy}
+            setArticles={setArticles}
+          />
         </Link>
-      )}
-      {/* </div> */}
+      </div>
+      <div className="navBarRight">
+        {currentUser.username === "" ? (
+          <Link to="/Login" className="Nav__link">
+            Login
+          </Link>
+        ) : (
+          <Link to="/User" className="Nav__link">
+            <img id="userThumbnail" src={currentUser.avatar_url} alt={`${currentUser.username} thumbnail`} />
+          </Link>
+        )}
+      </div>
     </div>
   );
 }

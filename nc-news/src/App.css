@@ -1,4 +1,5 @@
 .App {
+  background-color: #ffffff;
   text-align: center;
   height: 100vh;
   max-height: 100vh;
@@ -14,31 +15,31 @@
   grid-area: header;
 }
 
-.nav {
-  grid-area: nav;
-  width: 100vw;
-  height: 20px;
+h1 {
 }
 
-/* .Nav__link_left {
-  align-self: flex-start;
+Link {
+  color: black;
 }
-
-.Nav__link_right {
-  al
-} */
-
 .articles {
   grid-area: main;
   max-height: 100vh;
   overflow: scroll;
   scrollbar-width: none;
+  background-color: #ffffff;
 }
 
 .articles::-webkit-scrollbar {
   display: none;
 }
-/* 
+
+.nav {
+  display: flex;
+  grid-area: nav;
+  background-color: #88a0a8;
+  margin-bottom: 10px;
+}
+
 .navBarLeft {
   text-align: left;
   flex: 1;
@@ -48,13 +49,7 @@
 
 .navBarRight {
   text-align: right;
-  flex: 1;
   margin: 10px;
-} */
-
-.Nav__link {
-  margin: auto;
-  padding: 5 px;
 }
 
 .articles {
@@ -66,8 +61,9 @@
 }
 
 .articleCard {
+  border: solid 1px #88a0a8;
+  border-radius: 5px;
   max-width: 40%;
-
   margin: 10px;
   padding: 10px;
 }
@@ -82,7 +78,9 @@
   padding: 5px;
   height: 4vh;
   width: auto;
-  position: static;
+  position: absolute;
+  float: left;
+  right: 10px;
 }
 
 #userName {
@@ -121,6 +119,8 @@
 .readArticleCards {
   margin: 15px;
   padding: 15px;
+  border: solid 1px #88a0a8;
+  border-radius: 5px;
 }
 
 .readArticles {
@@ -129,19 +129,20 @@
 }
 
 .commentCard {
-  border: solid violet 1px;
+  border: solid 1px #88a0a8;
+  border-radius: 5px;
   margin: 20px;
   padding: 20px;
 }
 
 .sortBox {
   position: static;
+  margin-top: 3vh;
   margin-bottom: 20px;
   right: 3vw;
 }
 
 .sort_bar {
   height: 3vh;
-
   text-align: right;
 }
