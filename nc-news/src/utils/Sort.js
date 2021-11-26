@@ -1,15 +1,19 @@
+import { useState } from "react";
+
 export default function Sort({ setSortBy }) {
+  const [selectedValue, setSelectedValue] = useState("");
+
   return (
     <div className="sortBox">
       <form>
-        <select>
-          <option value="" selected disabled>
+        <select defaultValue="">
+          <option value="default" disabled>
             Sort
           </option>
           <option
             value="Trending"
             onClick={() => {
-              setSortBy("comment_count");
+              setSelectedValue("comment_count");
             }}
           >
             Trending
@@ -18,7 +22,7 @@ export default function Sort({ setSortBy }) {
           <option
             value="Most popular"
             onClick={() => {
-              setSortBy("votes");
+              setSelectedValue("votes");
             }}
           >
             Most popular
@@ -26,7 +30,7 @@ export default function Sort({ setSortBy }) {
           <option
             value="Newest"
             onClick={() => {
-              setSortBy("created_at");
+              setSelectedValue("created_at");
             }}
           >
             Newest

@@ -1,18 +1,21 @@
-import { useEffect, useState } from "react";
-import { getAllArticles } from "../API/api";
-import ArticleCard from "../utils/ArticleCard";
+import { useParams } from "react-router";
+import { useState, useEffect } from "react";
+import { getArticlesByTopic } from "../API/api";
 import Sort from "../utils/Sort";
+import ArticleCard from "../utils/ArticleCard";
 
-export default function Articles({ articles, setArticles, sortBy, setSortBy }) {
+export default function Football({ articles, sortBy, setSortBy, setArticles }) {
+  const { topic } = useParams();
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     setIsLoading(true);
-    getAllArticles(sortBy).then((response) => {
+
+    getArticlesByTopic(topic, sortBy).then((response) => {
       setArticles(response);
       setIsLoading(false);
     });
-  }, [setArticles, sortBy]);
+  }, [topic, setArticles, sortBy]);
 
   return !!isLoading ? (
     <p>Loading... </p>

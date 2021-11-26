@@ -5,18 +5,16 @@ import { UserContext } from "./contexts/Users";
 import Header from "./components/Header";
 import NavBar from "./components/NavBar";
 import Articles from "./components/Articles";
-import Topics from "./components/Topics";
 import Login from "./components/Login";
 import WelcomeBack from "./components/WelcomeBack";
 import User from "./components/User";
 import ReadArticle from "./components/ReadArticle";
+import Football from "./components/Football";
 
 function App() {
   const [articles, setArticles] = useState([]);
-  const [chosenTopic, setChosenTopic] = useState([]);
+  const [chosenTopic, setChosenTopic] = useState("");
   const [sortBy, setSortBy] = useState("comment_count");
-
-  console.log(chosenTopic);
 
   const [currentUser, setCurrentUser] = useState({
     username: "",
@@ -41,19 +39,22 @@ function App() {
             path="/"
             element={<Articles articles={articles} setArticles={setArticles} sortBy={sortBy} setSortBy={setSortBy} />}
           />
+
           <Route
-            path="/Topics"
+            path="/:topic"
             element={
-              <Topics
-                articles={articles}
-                setArticles={setArticles}
-                sortBy={sortBy}
-                setSortBy={setSortBy}
+              <Football
                 chosenTopic={chosenTopic}
                 setChosenTopic={setChosenTopic}
+                sortBy={sortBy}
+                setSortBy={setSortBy}
+                articles={articles}
+                setArticles={setArticles}
               />
             }
           />
+          {/* <Route path="/coding" element={} />
+          <Route path="/cooking" element={} /> */}
           <Route path="/Login" element={<Login />} />
           <Route path="/WelcomeBack" element={<WelcomeBack />} />
           <Route path="/User" element={<User />} />

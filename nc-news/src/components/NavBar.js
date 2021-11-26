@@ -1,7 +1,8 @@
 import { Link } from "react-router-dom";
-import ChooseTopic from "../utils/ChooseTopic.js";
 import { useContext } from "react";
 import { UserContext } from "../contexts/Users";
+
+const topics = ["coding", "football", "cooking"];
 
 export default function NavBar({ setArticles, chosenTopic, setChosenTopic, sortBy, setSortBy }) {
   const { currentUser } = useContext(UserContext);
@@ -12,15 +13,15 @@ export default function NavBar({ setArticles, chosenTopic, setChosenTopic, sortB
           Trending
         </Link>
         {" | "}
-        <Link to="/Topics" className="Nav__link">
-          <ChooseTopic
-            chosenTopic={chosenTopic}
-            setChosenTopic={setChosenTopic}
-            sortBy={sortBy}
-            setSortBy={setSortBy}
-            setArticles={setArticles}
-          />
-        </Link>
+        <>
+          {topics.map((topic) => {
+            return (
+              <Link to={`/${topic}`} key={topic} className="Nav__link">
+                <> {topic} </> {" | "}
+              </Link>
+            );
+          })}
+        </>
       </div>
       <div className="navBarRight">
         {currentUser.username === "" ? (

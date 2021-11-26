@@ -19,10 +19,10 @@ export default function ReadArticleCard({ readArticle, article_id }) {
         <p>{readArticle.topic}</p>
         <p>{readArticle.body}</p>
         <p>
-          <i class="far fa-comments"></i> {readArticle.comment_count}
+          <i className="far fa-comments"></i> {readArticle.comment_count}
         </p>
         <p>
-          <i class="fas fa-heart"></i> {votes}
+          <i className="fas fa-heart"></i> {votes}
         </p>
         <button
           onClick={() => {
@@ -31,7 +31,7 @@ export default function ReadArticleCard({ readArticle, article_id }) {
             });
           }}
         >
-          <i class="far fa-thumbs-up"></i>
+          <i className="far fa-thumbs-up"></i>
         </button>
         <button
           onClick={() => {
@@ -40,7 +40,7 @@ export default function ReadArticleCard({ readArticle, article_id }) {
             });
           }}
         >
-          <i class="far fa-thumbs-down"></i>
+          <i className="far fa-thumbs-down"></i>
         </button>
         <button
           onClick={() => {

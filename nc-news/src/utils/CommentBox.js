@@ -19,8 +19,6 @@ export default function CommentBox() {
     setComment({ ...comment, [name]: value });
   }
 
-  console.log(postedComment);
-
   return (
     <>
       <form

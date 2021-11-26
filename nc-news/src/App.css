@@ -18,8 +18,15 @@
 h1 {
 }
 
-Link {
+a {
   color: black;
+}
+
+Select {
+  background-color: #fad4d8;
+  border: 6px solid transparent;
+  border-color: #fff transparent transparent transparent;
+  font-size: 14px;
 }
 
 button {
@@ -29,7 +36,7 @@ button {
   padding: 5px 15px;
   margin: 1vw;
   border-radius: 15px;
-  box-shadow: 0 9px #999;
+  box-shadow: 0 5px #999;
 }
 
 button:active {
@@ -39,10 +46,12 @@ button:active {
 
 .fa-heart {
   color: #88a0a8;
+  font-size: 1.5rem;
 }
 
 .fa-comments {
   color: #88a0a8;
+  font-size: 1.5rem;
 }
 
 .articles {
@@ -68,7 +77,8 @@ button:active {
   text-align: left;
   flex: 1;
   margin: 10px;
-  align-items: center;
+  display: inline-block;
+  align-content: flex-start;
 }
 
 .navBarRight {
@@ -98,7 +108,8 @@ button:active {
 }
 
 #userThumbnail {
-  border-radius: 15px;
+  border: 1px #fad4d8 solid;
+  border-radius: 50%;
   padding: 5px;
   height: 4vh;
   width: auto;
@@ -162,7 +173,7 @@ button:active {
 
 .sortBox {
   position: static;
-  margin-top: 3vh;
+
   margin-bottom: 20px;
   right: 3vw;
 }
