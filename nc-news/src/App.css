@@ -21,6 +21,30 @@ h1 {
 Link {
   color: black;
 }
+
+button {
+  border: solid #fad4d8 2px;
+  background-color: white;
+  color: black;
+  padding: 5px 15px;
+  margin: 1vw;
+  border-radius: 15px;
+  box-shadow: 0 9px #999;
+}
+
+button:active {
+  background-color: #88a0a8;
+  box-shadow: 0 5px #666;
+}
+
+.fa-heart {
+  color: #88a0a8;
+}
+
+.fa-comments {
+  color: #88a0a8;
+}
+
 .articles {
   grid-area: main;
   max-height: 100vh;
@@ -61,7 +85,7 @@ Link {
 }
 
 .articleCard {
-  border: solid 1px #88a0a8;
+  border: solid 1px #fad4d8;
   border-radius: 5px;
   max-width: 40%;
   margin: 10px;
@@ -96,6 +120,7 @@ Link {
 .userCard {
   margin: 10px;
   padding: 10px;
+  border: solid 1px #fad4d8;
 }
 
 .userImage {
@@ -119,7 +144,7 @@ Link {
 .readArticleCards {
   margin: 15px;
   padding: 15px;
-  border: solid 1px #88a0a8;
+  border: solid 1px #fad4d8;
   border-radius: 5px;
 }
 
@@ -129,7 +154,7 @@ Link {
 }
 
 .commentCard {
-  border: solid 1px #88a0a8;
+  border: solid 1px #fad4d8;
   border-radius: 5px;
   margin: 20px;
   padding: 20px;

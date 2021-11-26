@@ -18,8 +18,12 @@ export default function ReadArticleCard({ readArticle, article_id }) {
         <h2>{readArticle.title}</h2>
         <p>{readArticle.topic}</p>
         <p>{readArticle.body}</p>
-        <p>💬 {readArticle.comment_count}</p>
-        <p>🤍 {votes}</p>
+        <p>
+          <i class="far fa-comments"></i> {readArticle.comment_count}
+        </p>
+        <p>
+          <i class="fas fa-heart"></i> {votes}
+        </p>
         <button
           onClick={() => {
             patchUsers(article_id, { inc_votes: 1 }).then((response) => {
@@ -27,7 +31,7 @@ export default function ReadArticleCard({ readArticle, article_id }) {
             });
           }}
         >
-          👍
+          <i class="far fa-thumbs-up"></i>
         </button>
         <button
           onClick={() => {
@@ -36,7 +40,7 @@ export default function ReadArticleCard({ readArticle, article_id }) {
             });
           }}
         >
-          👎
+          <i class="far fa-thumbs-down"></i>
         </button>
         <button
           onClick={() => {

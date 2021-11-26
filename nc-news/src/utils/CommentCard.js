@@ -19,7 +19,9 @@ export default function CommentCard({ comments, setOpenComments }) {
               <>
                 <p>{comment.author}</p>
                 <p>{comment.body}</p>
-                <p>🤍 {comment.votes}</p>
+                <p>
+                  <i class="fas fa-heart"></i> {comment.votes}
+                </p>
                 {currentUser.username === comment.author ? (
                   <button
                     onClick={(event) => {

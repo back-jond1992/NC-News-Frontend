@@ -49,7 +49,9 @@ export default function CommentBox() {
                 <div key={comment.author + comment.body} className="commentCard">
                   <p>{comment.author}</p>
                   <p>{comment.body}</p>
-                  <p>🤍 {comment.votes}</p>
+                  <p>
+                    <i class="fas fa-heart"></i> {comment.votes}
+                  </p>
                 </div>
               );
             })}

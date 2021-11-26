@@ -8,8 +8,13 @@ export default function ArticleCard({ articles }) {
           <div key={article.created_at} className="articleCard">
             <h2>{article.title}</h2>
             <p>{article.body}</p>
-            <p>💬 {article.comment_count}</p>
-            <p>🤍 {article.votes}</p>
+            <p>
+              <i class="far fa-comments"> </i>
+              {article.comment_count}
+            </p>
+            <p>
+              <i class="fas fa-heart"></i> {article.votes}
+            </p>
 
             <ReadArticleButton article={article} />
           </div>
