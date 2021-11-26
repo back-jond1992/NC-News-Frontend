@@ -11,18 +11,24 @@
 }
 
 .header {
-  border: solid red 1px;
   grid-area: header;
 }
 
 .nav {
-  border: solid green 1px;
   grid-area: nav;
-  display: flex;
+  width: 100vw;
+  height: 20px;
 }
 
+/* .Nav__link_left {
+  align-self: flex-start;
+}
+
+.Nav__link_right {
+  al
+} */
+
 .articles {
-  border: solid blue 1px;
   grid-area: main;
   max-height: 100vh;
   overflow: scroll;
@@ -32,19 +38,23 @@
 .articles::-webkit-scrollbar {
   display: none;
 }
-
+/* 
 .navBarLeft {
-  border: solid black 1px;
   text-align: left;
   flex: 1;
   margin: 10px;
+  align-items: center;
 }
 
 .navBarRight {
-  border: solid black 1px;
   text-align: right;
   flex: 1;
   margin: 10px;
+} */
+
+.Nav__link {
+  margin: auto;
+  padding: 5 px;
 }
 
 .articles {
@@ -57,7 +67,7 @@
 
 .articleCard {
   max-width: 40%;
-  border: solid pink 1px;
+
   margin: 10px;
   padding: 10px;
 }
@@ -68,12 +78,11 @@
 }
 
 #userThumbnail {
-  border: 1px solid #ddd;
   border-radius: 15px;
   padding: 5px;
   height: 4vh;
   width: auto;
-  display: inline;
+  position: static;
 }
 
 #userName {
@@ -87,26 +96,22 @@
 }
 
 .userCard {
-  border: solid pink 1px;
   margin: 10px;
   padding: 10px;
 }
 
 .userImage {
-  border: 1px solid purple;
   border-radius: 15px;
   padding: 10px;
   width: 100px;
 }
 
 .loginPage {
-  border: solid brown 1px;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
 }
 
 .welcomeBack {
-  border: solid yellow 1px;
   margin: auto;
   width: 50%;
   padding: 10px;
@@ -114,13 +119,11 @@
 }
 
 .readArticleCards {
-  border: solid darkgoldenrod 1px;
   margin: 15px;
   padding: 15px;
 }
 
 .readArticles {
-  border: solid aqua 1px;
   margin: 10px;
   padding: 10px;
 }
@@ -129,4 +132,16 @@
   border: solid violet 1px;
   margin: 20px;
   padding: 20px;
+}
+
+.sortBox {
+  position: static;
+  margin-bottom: 20px;
+  right: 3vw;
+}
+
+.sort_bar {
+  height: 3vh;
+
+  text-align: right;
 }

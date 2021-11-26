@@ -1,16 +1,14 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { getArticlesByTopic } from "../API/api";
 
 const topics = ["coding", "football", "cooking"];
 
-export default function ChooseTopic({ setArticles }) {
-  const [chosenTopic, setChosenTopic] = useState([]);
-
+export default function ChooseTopic({ chosenTopic, setChosenTopic, sortBy, setArticles }) {
   useEffect(() => {
-    getArticlesByTopic(chosenTopic).then((response) => {
+    getArticlesByTopic(chosenTopic, sortBy).then((response) => {
       setArticles(response);
     });
-  }, [chosenTopic, setArticles]);
+  }, [chosenTopic, setArticles, sortBy]);
 
   return (
     <form action="/action_page.php" id="topicsForm">

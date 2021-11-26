@@ -10,8 +10,8 @@ export function getAllArticles(sortBy) {
   });
 }
 
-export function getArticlesByTopic(chosenTopic) {
-  return articlesAPI.get(`/articles?topic=${chosenTopic}`).then((response) => {
+export function getArticlesByTopic(chosenTopic, sortBy) {
+  return articlesAPI.get(`/articles?topic=${chosenTopic}&sort_by=${sortBy}&order=DESC`).then((response) => {
     return response.data.articles;
   });
 }

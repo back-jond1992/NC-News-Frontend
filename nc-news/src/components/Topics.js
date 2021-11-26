@@ -1,18 +1,22 @@
 import ArticleCard from "../utils/ArticleCard";
 import Sort from "../utils/Sort";
 import { useEffect } from "react";
-import { getAllArticles } from "../API/api";
+import { getArticlesByTopic } from "../API/api";
 
-export default function Topics({ articles, setArticles, sortBy, setSortBy }) {
+export default function Topics({ articles, setArticles, sortBy, setSortBy, chosenTopic }) {
   useEffect(() => {
-    getAllArticles(sortBy).then((response) => {
+    getArticlesByTopic(chosenTopic, sortBy).then((response) => {
       setArticles(response);
     });
-  }, [setArticles, sortBy]);
+  }, [setArticles, sortBy, chosenTopic]);
   return (
-    <div className="articles">
-      <Sort sortBy={sortBy} setSortBy={setSortBy} />
-      <ArticleCard articles={articles} />
-    </div>
+    <>
+      <div className="sort_bar">
+        <Sort sortBy={sortBy} setSortBy={setSortBy} />
+      </div>
+      <div className="articles">
+        <ArticleCard articles={articles} />
+      </div>
+    </>
   );
 }
