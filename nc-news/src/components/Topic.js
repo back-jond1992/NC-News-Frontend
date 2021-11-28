@@ -4,7 +4,7 @@ import { getArticlesByTopic } from "../API/api";
 import Sort from "../utils/Sort";
 import ArticleCard from "../utils/ArticleCard";
 
-export default function Football({ articles, sortBy, setSortBy, setArticles }) {
+export default function Topic({ articles, sortBy, setSortBy, setArticles }) {
   const { topic } = useParams();
   const [isLoading, setIsLoading] = useState(true);
 
@@ -15,7 +15,7 @@ export default function Football({ articles, sortBy, setSortBy, setArticles }) {
       setArticles(response);
       setIsLoading(false);
     });
-  }, [topic, setArticles, sortBy]);
+  }, [sortBy, topic, setArticles]);
 
   return !!isLoading ? (
     <p>Loading... </p>

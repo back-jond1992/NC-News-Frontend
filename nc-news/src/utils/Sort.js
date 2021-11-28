@@ -1,40 +1,34 @@
-import { useState } from "react";
-
-export default function Sort({ setSortBy }) {
-  const [selectedValue, setSelectedValue] = useState("");
-
+export default function Sort({ sortBy, setSortBy }) {
+  console.log(sortBy);
+  const sort = {
+    comment_count: "Trending",
+    votes: "Most Popular",
+    created_at: "Newest",
+  };
   return (
     <div className="sortBox">
+      {/* <p>Viewing :</p>{" "}
+      {sortBy === "comment_count" ? (
+        <p>Trending</p>
+      ) : sortBy === "votes" ? (
+        <p>Most Popular</p>
+      ) : sortBy === "created_at" ? (
+        <p>Newest</p>
+      ) : null} */}
       <form>
-        <select defaultValue="">
+        <select
+          defaultValue={"default"}
+          onChange={(event) => {
+            event.preventDefault();
+            setSortBy(event.target.value);
+          }}
+        >
           <option value="default" disabled>
-            Sort
+            {sort[sortBy]}
           </option>
-          <option
-            value="Trending"
-            onClick={() => {
-              setSelectedValue("comment_count");
-            }}
-          >
-            Trending
-          </option>
-
-          <option
-            value="Most popular"
-            onClick={() => {
-              setSelectedValue("votes");
-            }}
-          >
-            Most popular
-          </option>
-          <option
-            value="Newest"
-            onClick={() => {
-              setSelectedValue("created_at");
-            }}
-          >
-            Newest
-          </option>
+          <option value="comment_count">Trending</option>
+          <option value="votes">Most Popular</option>
+          <option value="created_at">Newest</option>
         </select>
       </form>
     </div>

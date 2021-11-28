@@ -9,7 +9,7 @@ import Login from "./components/Login";
 import WelcomeBack from "./components/WelcomeBack";
 import User from "./components/User";
 import ReadArticle from "./components/ReadArticle";
-import Football from "./components/Football";
+import Topic from "./components/Topic";
 
 function App() {
   const [articles, setArticles] = useState([]);
@@ -43,7 +43,7 @@ function App() {
           <Route
             path="/:topic"
             element={
-              <Football
+              <Topic
                 chosenTopic={chosenTopic}
                 setChosenTopic={setChosenTopic}
                 sortBy={sortBy}

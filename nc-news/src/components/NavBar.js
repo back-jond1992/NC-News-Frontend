@@ -9,7 +9,13 @@ export default function NavBar({ setArticles, chosenTopic, setChosenTopic, sortB
   return (
     <div className="nav">
       <div className="navBarLeft">
-        <Link to="/" className="Nav__link">
+        <Link
+          to="/"
+          className="Nav__link"
+          onClick={() => {
+            setSortBy("comment_count");
+          }}
+        >
           Trending
         </Link>
         {" | "}
