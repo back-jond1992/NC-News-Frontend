@@ -23,7 +23,12 @@ export default function Comments({ article_id, setOpenComments }) {
   ) : (
     <div className="comments">
       {currentUser.username ? <CommentBox setComments={setComments} /> : null}
-      <CommentCard setOpenComments={setOpenComments} comments={comments} />
+      <CommentCard
+        setOpenComments={setOpenComments}
+        comments={comments}
+        setComments={setComments}
+        article_id={article_id}
+      />
     </div>
   );
 }

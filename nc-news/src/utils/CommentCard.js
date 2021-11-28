@@ -1,10 +1,17 @@
-import { useContext, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { UserContext } from "../contexts/Users";
-import { deleteComment } from "../API/api";
+import { deleteComment, patchComment } from "../API/api";
+import { getCommentsByArticleID } from "../API/api";
 
-export default function CommentCard({ comments, setOpenComments }) {
+export default function CommentCard({ comments, setOpenComments, setComments, article_id }) {
   const { currentUser } = useContext(UserContext);
   const [deletedComment, setDeletedComment] = useState("");
+
+  useEffect(() => {
+    getCommentsByArticleID(article_id).then((response) => {
+      setComments(response);
+    });
+  }, [article_id, setComments]);
 
   return (
     <>
@@ -22,6 +29,28 @@ export default function CommentCard({ comments, setOpenComments }) {
                 <p>
                   <i class="fas fa-heart"></i> {comment.votes}
                 </p>
+                <button
+                  onClick={() => {
+                    patchComment(comment.comment_id, { inc_votes: 1 }).then(() => {
+                      getCommentsByArticleID(article_id).then((response) => {
+                        setComments(response);
+                      });
+                    });
+                  }}
+                >
+                  <i className="far fa-thumbs-up"></i>
+                </button>
+                <button
+                  onClick={() => {
+                    patchComment(comment.comment_id, { inc_votes: -1 }).then(() => {
+                      getCommentsByArticleID(article_id).then((response) => {
+                        setComments(response);
+                      });
+                    });
+                  }}
+                >
+                  <i className="far fa-thumbs-down"></i>
+                </button>
                 {currentUser.username === comment.author ? (
                   <button
                     onClick={(event) => {

@@ -49,3 +49,9 @@ export function postComment(article_id, body) {
 export function deleteComment(comment_id) {
   return articlesAPI.delete(`/comments/${comment_id}`);
 }
+
+export function patchComment(comment_id, vote) {
+  return articlesAPI.patch(`/comments/${comment_id}`, vote).then((response) => {
+    return response.data.comment;
+  });
+}

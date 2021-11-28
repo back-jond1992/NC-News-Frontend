@@ -34,7 +34,14 @@ export default function CommentBox() {
       >
         <fieldset>
           <legend>Post a comment</legend>
-          <input onChange={handleChange} type="text" id="body" name="body" value={comment.body}></input>
+          <input
+            onChange={handleChange}
+            type="text"
+            id="body"
+            name="body"
+            value={comment.body}
+            placeholder="Post a comment..."
+          ></input>
           <button type="submit">Post</button>
         </fieldset>
       </form>

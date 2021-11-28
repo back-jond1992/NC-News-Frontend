@@ -1,4 +1,6 @@
 .App {
+  line-height: 200%;
+  font-family: "Ubuntu", sans-serif;
   background-color: #ffffff;
   text-align: center;
   height: 100vh;
@@ -16,6 +18,8 @@
 }
 
 h1 {
+  font-size: 10vw;
+  color: black;
 }
 
 a {
@@ -95,11 +99,11 @@ button:active {
 }
 
 .articleCard {
-  border: solid 1px #fad4d8;
+  border: solid 2px #fad4d8;
   border-radius: 5px;
   max-width: 40%;
   margin: 10px;
-  padding: 10px;
+  padding: 20px;
 }
 
 #topicsForm {
@@ -129,13 +133,13 @@ button:active {
 }
 
 .userCard {
-  margin: 10px;
+  margin: 20px;
   padding: 10px;
-  border: solid 1px #fad4d8;
+  border: solid 2px #fad4d8;
 }
 
 .userImage {
-  border-radius: 15px;
+  border-radius: 20px;
   padding: 10px;
   width: 100px;
 }
@@ -155,7 +159,7 @@ button:active {
 .readArticleCards {
   margin: 15px;
   padding: 15px;
-  border: solid 1px #fad4d8;
+  border: solid 2px #fad4d8;
   border-radius: 5px;
 }
 
@@ -165,7 +169,7 @@ button:active {
 }
 
 .commentCard {
-  border: solid 1px #fad4d8;
+  border: solid 2px #fad4d8;
   border-radius: 5px;
   margin: 20px;
   padding: 20px;
@@ -173,7 +177,6 @@ button:active {
 
 .sortBox {
   position: static;
-
   margin-bottom: 20px;
   right: 3vw;
 }
@@ -181,4 +184,8 @@ button:active {
 .sort_bar {
   height: 3vh;
   text-align: right;
+}
+
+#body {
+  width: 75vw;
 }
