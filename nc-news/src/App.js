@@ -10,6 +10,7 @@ import WelcomeBack from "./components/WelcomeBack";
 import User from "./components/User";
 import ReadArticle from "./components/ReadArticle";
 import Topic from "./components/Topic";
+import Error from "./utils/Error";
 
 function App() {
   const [articles, setArticles] = useState([]);
@@ -60,6 +61,7 @@ function App() {
           <Route path="/WelcomeBack" element={<WelcomeBack />} />
           <Route path="/User" element={<User />} />
           <Route path="/ReadArticle/:article_id" element={<ReadArticle />} />
+          <Route path="/Error" element={<Error />} />
         </Routes>
       </div>
     </UserContext.Provider>

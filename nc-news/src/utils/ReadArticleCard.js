@@ -7,9 +7,13 @@ export default function ReadArticleCard({ readArticle, article_id }) {
   const [votes, setVotes] = useState(0);
 
   useEffect(() => {
-    getArticlesByID(article_id).then((response) => {
-      setVotes(response.votes);
-    });
+    getArticlesByID(article_id)
+      .then((response) => {
+        setVotes(response.votes);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   }, [article_id]);
 
   return (

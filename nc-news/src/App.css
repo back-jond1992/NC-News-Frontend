@@ -189,3 +189,13 @@ button:active {
 #body {
   width: 75vw;
 }
+
+.fa-sad-tear {
+  font-size: 20rem;
+  color: #fad4d8;
+}
+
+.errorCode {
+  font-size: 5rem;
+  font-weight: bold;
+}
