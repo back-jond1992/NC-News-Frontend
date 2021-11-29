@@ -1,10 +1,12 @@
 import { useEffect, useState } from "react";
 import Comments from "../components/Comments";
 import { getArticlesByID, patchUsers } from "../API/api";
+import Error from "./Error";
 
 export default function ReadArticleCard({ readArticle, article_id }) {
   const [openComments, setOpenComments] = useState(false);
   const [votes, setVotes] = useState(0);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     getArticlesByID(article_id)
@@ -12,11 +14,13 @@ export default function ReadArticleCard({ readArticle, article_id }) {
         setVotes(response.votes);
       })
       .catch((error) => {
-        console.log(error);
+        setError(error);
       });
   }, [article_id]);
 
-  return (
+  return !!error ? (
+    <Error error={error} />
+  ) : (
     <main>
       <div className="readArticleCards">
         <h2>{readArticle.title}</h2>
@@ -30,18 +34,26 @@ export default function ReadArticleCard({ readArticle, article_id }) {
         </p>
         <button
           onClick={() => {
-            patchUsers(article_id, { inc_votes: 1 }).then((response) => {
-              setVotes(response.votes);
-            });
+            patchUsers(article_id, { inc_votes: 1 })
+              .then((response) => {
+                setVotes(response.votes);
+              })
+              .catch((error) => {
+                setError(error);
+              });
           }}
         >
           <i className="far fa-thumbs-up"></i>
         </button>
         <button
           onClick={() => {
-            patchUsers(article_id, { inc_votes: -1 }).then((response) => {
-              setVotes(response.votes);
-            });
+            patchUsers(article_id, { inc_votes: -1 })
+              .then((response) => {
+                setVotes(response.votes);
+              })
+              .catch((error) => {
+                setError(error);
+              });
           }}
         >
           <i className="far fa-thumbs-down"></i>

@@ -42,7 +42,7 @@ export default function CommentBox() {
             value={comment.body}
             placeholder="Post a comment..."
           ></input>
-          <button type="submit">Post</button>
+          {comment.body === "" ? null : <button type="submit">Post</button>}
         </fieldset>
       </form>
       {!!posted ? (

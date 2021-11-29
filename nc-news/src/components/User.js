@@ -8,7 +8,7 @@ export default function User() {
     <Link to="/Login">Login</Link>
   ) : (
     <>
-      <div>
+      <div className="userCard">
         <h2>You are logged in as:</h2>
         <p>{currentUser.username}</p>
         <img className="userImage" src={currentUser.avatar_url} alt={currentUser.username} />
