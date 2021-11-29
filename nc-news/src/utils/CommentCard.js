@@ -1,7 +1,8 @@
 import { useContext, useEffect, useState } from "react";
 import { UserContext } from "../contexts/Users";
-import { deleteComment, patchComment } from "../API/api";
+import { deleteComment } from "../API/api";
 import { getCommentsByArticleID } from "../API/api";
+import CommentVoter from "./CommentVoter";
 
 export default function CommentCard({ comments, setOpenComments, setComments, article_id }) {
   const { currentUser } = useContext(UserContext);
@@ -26,31 +27,7 @@ export default function CommentCard({ comments, setOpenComments, setComments, ar
               <>
                 <p>{comment.author}</p>
                 <p>{comment.body}</p>
-                <p>
-                  <i class="fas fa-heart"></i> {comment.votes}
-                </p>
-                <button
-                  onClick={() => {
-                    patchComment(comment.comment_id, { inc_votes: 1 }).then(() => {
-                      getCommentsByArticleID(article_id).then((response) => {
-                        setComments(response);
-                      });
-                    });
-                  }}
-                >
-                  <i className="far fa-thumbs-up"></i>
-                </button>
-                <button
-                  onClick={() => {
-                    patchComment(comment.comment_id, { inc_votes: -1 }).then(() => {
-                      getCommentsByArticleID(article_id).then((response) => {
-                        setComments(response);
-                      });
-                    });
-                  }}
-                >
-                  <i className="far fa-thumbs-down"></i>
-                </button>
+                <CommentVoter comment={comment} />
                 {currentUser.username === comment.author ? (
                   <button
                     onClick={(event) => {
