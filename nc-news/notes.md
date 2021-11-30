@@ -29,8 +29,8 @@
 - [tick] Content legible (not too wide, obstructed, etc)
 - [tick] Refreshing doesn’t cause an issue on sub-pages
 - [tick] No errors in the console
-- [ ] Votes / Posts / Deletions happen instantly _OR_ give user indication of loading
-      ​
+- [tick] Votes / Posts / Deletions happen instantly _OR_ give user indication of loading
+  ​
 
 ## Functionality
 
@@ -57,7 +57,7 @@
 ​
 
 - [tick] Can vote on comments
-- [ ] Can vote a maximum of once in either direction per page load
+- [tick] Can vote a maximum of once in either direction per page load
 - [tick] Votes are persistent when page is refreshed
 - [ ] Add newly posted comments to the top of the comments list, rather than in a separate section
       ​
@@ -66,7 +66,7 @@
 
 ​
 
-- [ ] Bad url
+- [tick] Bad url
 - [tick] Bad topic slug in url
 - [tick] Bad article id in url
 - [tick] Post comment: No text in comment body

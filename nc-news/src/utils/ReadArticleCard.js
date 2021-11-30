@@ -7,6 +7,7 @@ export default function ReadArticleCard({ readArticle, article_id }) {
   const [openComments, setOpenComments] = useState(false);
   const [votes, setVotes] = useState(0);
   const [error, setError] = useState(null);
+  const [voted, setVoted] = useState(false);
 
   useEffect(() => {
     getArticlesByID(article_id)
@@ -34,27 +35,35 @@ export default function ReadArticleCard({ readArticle, article_id }) {
           <i className="fas fa-heart"></i> {votes}
         </p>
         <button
-          onClick={() => {
-            patchUsers(article_id, { inc_votes: 1 })
-              .then((response) => {
-                setVotes(response.votes);
-              })
-              .catch((error) => {
-                setError(error);
-              });
+          onClick={(event) => {
+            if (!voted) {
+              event.target.style.color = "pink";
+              patchUsers(article_id, { inc_votes: 1 })
+                .then((response) => {
+                  setVotes(response.votes);
+                })
+                .catch((error) => {
+                  setError(error);
+                });
+              setVoted(true);
+            }
           }}
         >
           <i className="far fa-thumbs-up"></i>
         </button>
         <button
-          onClick={() => {
-            patchUsers(article_id, { inc_votes: -1 })
-              .then((response) => {
-                setVotes(response.votes);
-              })
-              .catch((error) => {
-                setError(error);
-              });
+          onClick={(event) => {
+            event.target.style.color = "pink";
+            if (!voted) {
+              patchUsers(article_id, { inc_votes: -1 })
+                .then((response) => {
+                  setVotes(response.votes);
+                })
+                .catch((error) => {
+                  setError(error);
+                });
+              setVoted(true);
+            }
           }}
         >
           <i className="far fa-thumbs-down"></i>

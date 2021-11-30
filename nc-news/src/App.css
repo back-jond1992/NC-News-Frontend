@@ -26,6 +26,14 @@ a {
   color: black;
 }
 
+i {
+  display: inline-block;
+  position: relative;
+  z-index: 1;
+  padding: 1em;
+  margin: -1em;
+}
+
 Select {
   background-color: #fad4d8;
   border: 6px solid transparent;
