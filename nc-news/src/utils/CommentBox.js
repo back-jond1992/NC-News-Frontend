@@ -55,7 +55,7 @@ export default function CommentBox() {
                   <p>{comment.author}</p>
                   <p>{comment.body}</p>
                   <p>
-                    <i class="fas fa-heart"></i> {comment.votes}
+                    <i className="fas fa-heart"></i> {comment.votes}
                   </p>
                 </div>
               );

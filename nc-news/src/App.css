@@ -48,6 +48,10 @@ button:active {
   box-shadow: 0 5px #666;
 }
 
+button-voted {
+  background-color: #fad4d8;
+}
+
 .fa-heart {
   color: #88a0a8;
   font-size: 1.5rem;
@@ -56,6 +60,21 @@ button:active {
 .fa-comments {
   color: #88a0a8;
   font-size: 1.5rem;
+}
+
+.fa-thumbs-up {
+  color: #88a0a8;
+  font-size: 1rem;
+}
+
+.fa-thumbs-down {
+  color: #88a0a8;
+  font-size: 1rem;
+}
+
+.fa-thumbs-up-voted {
+  color: #88a0a8;
+  font-size: 1rem;
 }
 
 .articles {
@@ -198,4 +217,11 @@ button:active {
 .errorCode {
   font-size: 5rem;
   font-weight: bold;
+}
+
+.welcomeBack {
+  border: solid 2px #fad4d8;
+  border-radius: 5px;
+  margin: 20px;
+  padding: 20px;
 }

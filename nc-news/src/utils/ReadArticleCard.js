@@ -24,6 +24,7 @@ export default function ReadArticleCard({ readArticle, article_id }) {
     <main>
       <div className="readArticleCards">
         <h2>{readArticle.title}</h2>
+        <p>{readArticle.author}</p>
         <p>{readArticle.topic}</p>
         <p>{readArticle.body}</p>
         <p>

@@ -7,6 +7,8 @@ export default function ArticleCard({ articles }) {
         return (
           <div key={article.created_at} className="articleCard">
             <h2>{article.title}</h2>
+            <p>{article.author}</p>
+            <p>{article.topic}</p>
             <p>{article.body}</p>
             <p>
               <i className="far fa-comments"> </i> {article.comment_count}

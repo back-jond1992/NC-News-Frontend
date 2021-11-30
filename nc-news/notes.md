@@ -69,8 +69,8 @@
 - [ ] Bad url
 - [tick] Bad topic slug in url
 - [tick] Bad article id in url
-- [ ] Post comment: No text in comment body
-      ​
+- [tick] Post comment: No text in comment body
+  ​
 
 ## Code
 
