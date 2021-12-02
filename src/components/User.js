@@ -13,7 +13,7 @@ export default function User() {
         <p>{currentUser.username}</p>
         <img className="userImage" src={currentUser.avatar_url} alt={currentUser.username} />
       </div>
-      <div className="userCard">
+      <div>
         <button
           onClick={() => {
             setCurrentUser({
