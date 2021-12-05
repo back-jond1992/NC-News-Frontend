@@ -4,7 +4,7 @@ NC News is a social news aggregation, web content rating, and discussion website
 
 Articles are categorized into three topics and be sorted by trending (most comments), most popular (most votes) and newest (most recent). Articles can be voted up or down. Once per user per page load. Article comments can be posted, voted up or down and deleted by a logged in user. The user can also be changed.
 
-The hosted site can be found here:
+The hosted site can be found here: https://jacks-nc-new.netlify.app/
 
 ## Getting started
 
