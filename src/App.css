@@ -232,6 +232,6 @@ button-voted {
 .welcomeBack {
   border: solid 2px #fad4d8;
   border-radius: 10px;
-  margin: 20px;
+  margin: auto;
   padding: 20px;
 }

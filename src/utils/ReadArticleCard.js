@@ -53,8 +53,8 @@ export default function ReadArticleCard({ readArticle, article_id }) {
         </button>
         <button
           onClick={(event) => {
-            event.target.style.color = "pink";
             if (!voted) {
+              event.target.style.color = "pink";
               patchUsers(article_id, { inc_votes: -1 })
                 .then((response) => {
                   setVotes(response.votes);
