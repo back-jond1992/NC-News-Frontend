@@ -1,7 +1,6 @@
 import { useContext, useEffect, useState } from "react";
 import { UserContext } from "../contexts/Users";
-import { deleteComment } from "../API/api";
-import { getCommentsByArticleID } from "../API/api";
+import { deleteComment, getCommentsByArticleID } from "../API/api";
 import CommentVoter from "./CommentVoter";
 
 export default function CommentCard({ comments, setOpenComments, setComments, article_id }) {
@@ -13,6 +12,8 @@ export default function CommentCard({ comments, setOpenComments, setComments, ar
       setComments(response);
     });
   }, [article_id, setComments]);
+
+  comments.sort((a, b) => b.comment_id - a.comment_id);
 
   return (
     <>

@@ -1,8 +1,7 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import { getCommentsByArticleID } from "../API/api";
 import CommentCard from "../utils/CommentCard";
 import CommentBox from "../utils/CommentBox";
-import { useContext } from "react";
 import { UserContext } from "../contexts/Users";
 
 export default function Comments({ article_id, setOpenComments }) {
@@ -22,7 +21,7 @@ export default function Comments({ article_id, setOpenComments }) {
     <p>Loading... </p>
   ) : (
     <div className="comments">
-      {currentUser.username ? <CommentBox setComments={setComments} /> : null}
+      {currentUser.username ? <CommentBox comments={comments} setComments={setComments} /> : null}
       <CommentCard
         setOpenComments={setOpenComments}
         comments={comments}

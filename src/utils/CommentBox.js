@@ -1,18 +1,15 @@
-import { useState } from "react";
-import { useContext } from "react";
+import { useState, useContext } from "react";
 import { useParams } from "react-router";
 import { UserContext } from "../contexts/Users";
 import { postComment } from "../API/api";
 
-export default function CommentBox() {
+export default function CommentBox({ comments, setComments }) {
   const { article_id } = useParams();
   const { currentUser } = useContext(UserContext);
   const [comment, setComment] = useState({
     username: currentUser.username,
     body: "",
   });
-  const [posted, setPosted] = useState(false);
-  const [postedComment, setPostedComment] = useState([]);
 
   function handleChange(event) {
     const { name, value } = event.target;
@@ -26,10 +23,8 @@ export default function CommentBox() {
         onSubmit={(event) => {
           event.preventDefault();
           postComment(article_id, comment).then((response) => {
-            const existingComment = [...postedComment, response];
-            setPostedComment(existingComment);
+            setComments([...comments, response]);
           });
-          setPosted(true);
         }}
       >
         <fieldset>
@@ -45,24 +40,6 @@ export default function CommentBox() {
           {comment.body === "" ? null : <button type="submit">Post</button>}
         </fieldset>
       </form>
-      {!!posted ? (
-        <div className="commentCard">
-          <p>Posted:</p>
-          <div className="commentCard">
-            {postedComment.map((comment) => {
-              return (
-                <div key={comment.author + comment.body} className="commentCard">
-                  <p>{comment.author}</p>
-                  <p>{comment.body}</p>
-                  <p>
-                    <i className="fas fa-heart"></i> {comment.votes}
-                  </p>
-                </div>
-              );
-            })}
-          </div>
-        </div>
-      ) : null}
     </>
   );
 }
